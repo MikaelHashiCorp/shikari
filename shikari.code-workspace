@@ -1,0 +1,20 @@
+{
+	"folders": [
+    {
+      "path": "."
+    },
+    {
+      "path": "../shikari-scenarios"
+    },
+    {
+      "path": "../../../../../opt/homebrew/var/log"
+    },
+    {
+      "path": "../../../.lima"
+    },
+    {
+      "path": "../../../.lima.1"
+    }
+  ],
+  "settings": {}
+}
