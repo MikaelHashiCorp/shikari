@@ -7,13 +7,13 @@
       "path": "../shikari-scenarios"
     },
     {
-      "path": "../../../../../opt/homebrew/var/log"
-    },
-    {
       "path": "../../../.lima"
     },
     {
-      "path": "../../../.lima.1"
+      "path": "../../../.shikari"
+    },
+    {
+      "path": "../../../../../opt/homebrew/Cellar/lima/0.23.2/share/lima"
     }
   ],
   "settings": {}
