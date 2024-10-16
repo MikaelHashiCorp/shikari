@@ -76,11 +76,11 @@ The `env` command prints various Nomad and Consul environment variables that hel
 
 ```
 $ shikari env -n murphy --tls --acl consul
-export CONSUL_HTTP_ADDR=https://192.168.105.13:8501
+export CONSUL_HTTP_ADDR=http://192.168.105.13:8500
 export CONSUL_HTTP_TOKEN=root
 
 $ shikari env -n murphy --tls --acl nomad
-export NOMAD_ADDR=https://192.168.105.13:4646
+export NOMAD_ADDR=http://192.168.105.13:4646
 export NOMAD_TOKEN=00000000-0000-0000-0000-000000000000
 ```
 

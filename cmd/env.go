@@ -26,9 +26,9 @@ Multiple product names can be passed separated by comma.
 
 For example:
 shikari env -n murphy -t consul,nomad
-export CONSUL_HTTP_ADDR=https://xxx.xxx
+export CONSUL_HTTP_ADDR=http://xxx.xxx
 export CONSUL_CACERT=xxx/consul-agent-ca.pem
-export NOMAD_ADDR=https://xxx.xxx
+export NOMAD_ADDR=http://xxx.xxx
 export NOMAD_CACERT=xxx/nomad-agent-ca.pem`,
 	Run: func(cmd *cobra.Command, args []string) {
 
