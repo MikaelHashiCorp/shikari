@@ -248,3 +248,32 @@ func (vm LimaVM) GetIPAddress() string {
 	}
 	return ""
 }
+
+// ResetUserV2Leases removes Lima's user-v2 NAT lease table and pidfile once no
+// Lima instance is running. Lima never releases leases, so after ~255 VM
+// creations the pool is exhausted and new VMs get no IPv4 on their NAT NIC
+// ("usernet unable to resolve IP for SSH forwarding"). It does nothing while
+// any instance runs or while a `limactl usernet` daemon is alive.
+func ResetUserV2Leases() {
+	for _, vm := range ListInstances() {
+		if strings.ToLower(vm.Status) == "running" {
+			return
+		}
+	}
+
+	if exec.Command("pgrep", "-f", "limactl usernet").Run() == nil {
+		return
+	}
+
+	home, err := os.UserHomeDir()
+	if err != nil {
+		return
+	}
+	dir := home + "/.lima/_networks/user-v2"
+
+	for _, name := range []string{"leases.json", "usernet_user-v2.pid"} {
+		if err := os.Remove(dir + "/" + name); err == nil {
+			fmt.Printf("Removed stale Lima user-v2 state: %s/%s\n", dir, name)
+		}
+	}
+}

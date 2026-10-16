@@ -78,4 +78,6 @@ func destroyVM(instances []lima.LimaVM, force bool) {
 	for err := range errCh {
 		fmt.Println(err)
 	}
+
+	lima.ResetUserV2Leases()
 }
